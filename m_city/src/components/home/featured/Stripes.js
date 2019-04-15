@@ -74,6 +74,7 @@ export class Stripes extends Component {
       </Animate>
     ));
   };
+
   render() {
     return <div className="featured_stripes">{this.showStripes()}</div>;
   }
