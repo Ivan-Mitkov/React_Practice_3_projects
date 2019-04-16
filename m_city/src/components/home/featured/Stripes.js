@@ -53,7 +53,7 @@ export class Stripes extends Component {
           },
           events: {
             end() {
-              console.log("animation finished");
+              // console.log("animation finished");
             }
           }
         }}
