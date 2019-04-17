@@ -14,8 +14,8 @@ export class MeetPlayers extends Component {
       <Reveal
         fraction={0.7}
         onReveal={() => {
-          console.log('reveal')
-          this.setState(()=> this.state.show= true );
+          console.log("reveal");
+          this.setState(this.setState({ show: true }));
         }}
       >
         <div
