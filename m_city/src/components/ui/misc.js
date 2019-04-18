@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//render elements helper
 export const Tag = props => {
   const template = (
     <div
@@ -23,7 +24,7 @@ export const Tag = props => {
     return template;
   }
 };
-
+//firebase 
 export const firebaseLooper = snapshot => {
   const data = [];
   snapshot.forEach(childSnapshot => {
@@ -35,14 +36,21 @@ export const firebaseLooper = snapshot => {
   return data;
 };
 
-export const validate=(element)=>{
-  let error=[true,'']
+//validate form
+export const validate = element => {
+  let error = [true, ""];
 
-  if(element.validation.required){
-    const valid=element.value.trim()!=='';
-    const message=`${!valid?'required':''}`;
-    error=[valid,message];
-   console.log('error: ',error)
+  if (element.validation.required) {
+    const valid = element.value.trim() !== "";
+    const message = `${!valid ? "required" : ""}`;
+    error = [valid, message];
   }
+  if (element.validation.email) {
+    const valid = /\S+@\S+\.\S+/.test(element.value);
+    const message = `${!valid && "Please enter valid email"}`;
+    error = [valid, message];
+  }
+  // console.log("error: ", error);
+
   return error;
-}
+};
